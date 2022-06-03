@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,5 +35,94 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+.main-box {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.border-box{
+  border: 1px solid #e5e5e5;
+  box-shadow: 0.5px 0.5px #e5e5e5;
+  border-radius: 2rem;
+  padding: 1rem;
+  width: 75vmax;
+  text-align: center;
+}
+
+
+.input_group {
+  position: relative;
+ }
+ 
+ .input {
+  background: none;
+  border-radius: 1rem;
+  border: solid 1.5px #9e9e9e;
+  color: black;
+  font-size: 1rem;
+  padding: 1rem;
+  transition: border 150ms cubic-bezier(0.4,0,0.2,1) 0s;
+  width: 12.5rem !important;
+ }
+ 
+ .user_label {
+  position: absolute;
+  left: 15px;
+  color: #e8e8e8;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4,0,0.2,1) 0s;
+ }
+ 
+ .input:focus, input:valid {
+  outline: none;
+  border: 1.5px solid black;
+ }
+ 
+ .input:focus ~ label, input:valid ~ label {
+  transform: translateY(-50%) scale(0.8);
+  background-color: white;
+  padding: 0 .2em;
+  color: black;
+ }
+
+
+ .button_group{
+  background: black;
+  border-radius: 2rem;
+  border: 1px solid #e5e5e5;
+  color: white;
+  font-size: 1rem;
+  margin: 2rem;
+  padding: 1rem;
+  text-decoration: none;
+  width: 10rem;
+ }
+
+ .button_group:focus-within{
+   background: white;
+   border: 1px solid black;
+   color: black;
+ }
+
+nav{
+  margin-bottom: 2rem;
+  position: relative;
+  top: 0;
+}
+
+/* WEB */
+
+@media only screen and (min-width: 500px)  {
+
+  .main-box{
+    flex-direction: row;
   }
 }

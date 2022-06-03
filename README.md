@@ -1,6 +1,6 @@
-# Getting Started with Create React App and Redux
+# Saya Championship
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This APP would help you with you Tournament
 
 ## Available Scripts
 
