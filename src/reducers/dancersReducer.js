@@ -14,6 +14,20 @@ const dancersReducer = (state = initialState, action) => {
         ...state,
         dancersData: action.payload,
       };
+    case types.detailDancer:
+      return {
+        ...state,
+        dancerID: action.payload,
+      };
+    case types.editDancer:
+      return {};
+    case types.removeDancer:
+      return {
+        ...state,
+        dancersData: state.dancersData.filter((dancer) => {
+          return dancer.id !== action.payload;
+        }),
+      };
 
     default:
       return state;

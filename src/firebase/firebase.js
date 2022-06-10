@@ -1,5 +1,13 @@
 import { db } from "./firebaseConfig";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  getDoc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
 
 export const addData = async (data) => {
   try {
@@ -20,4 +28,24 @@ export const loadData = async () => {
     });
   });
   return data;
+};
+
+export const detailData = async (dancerID) => {
+  const docRef = doc(db, "dancers", dancerID);
+  const docSnap = await getDoc(docRef);
+  // console.log(docSnap.data());
+  return docSnap.data();
+};
+
+export const editData = async (docId, dancerData) => {
+  console.log("Data Frebase", dancerData);
+  const docRef = doc(db, "dancers", docId);
+  await updateDoc(docRef, dancerData);
+  return;
+};
+
+export const deleteData = async (docId) => {
+  const docRef = doc(db, "dancers", docId);
+  await deleteDoc(docRef);
+  return;
 };

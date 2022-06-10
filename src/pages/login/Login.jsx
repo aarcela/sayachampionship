@@ -7,11 +7,12 @@ import {
 } from "../../firebase/firebaseConfig";
 import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "./Login.module.css";
+import "../../App.css";
 
 const Login = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-
+  console.log(error);
   useEffect(() => {
     if (loading) {
       console.log("Loading");
@@ -22,9 +23,10 @@ const Login = () => {
 
   return (
     <>
-      <section className={styles.box}>
-        <div className={styles.content}>
-          <h4 className="red-text text-darken-3">Iniciar Sesión</h4>
+      <h2 className="red-text text-darken-3">Salsa y Ashe</h2>
+      <section className="border-box">
+        <div className="main-box">
+          <h4>Iniciar Sesión</h4>
           <div className="input-field">
             <input
               id="email"

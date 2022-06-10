@@ -1,18 +1,21 @@
 import React from "react";
+import { TextInput } from "react-materialize";
 import "../App.css";
 
-const Input = ({ name, label, type = "text", handleInputChange }) => {
+const Input = ({ name, label, type = "text", handleInputChange, value }) => {
   return (
     <div className="input_group">
-      <input
-        required=""
-        type={type}
-        name={name}
+      <TextInput
         autoComplete="off"
         className="input"
+        label={label}
+        name={name}
         onChange={handleInputChange}
+        required=""
+        type={type}
+        value={value}
       />
-      <label className="user_label">{label}</label>
+      {/* <label className="user_label">{label}</label> */}
     </div>
   );
 };

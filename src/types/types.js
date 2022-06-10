@@ -3,4 +3,7 @@ export const types = {
   listDancer: "[Dancer] LIST",
   editDancer: "[Dancer] EDIT",
   removeDancer: "[Dancer] REMOVE",
+  detailDancer: "[Dancer] DETAIL",
+
+  loading: "LOADING",
 };

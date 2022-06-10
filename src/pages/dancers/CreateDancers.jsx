@@ -1,98 +1,40 @@
-import React, { useState } from "react";
-import Input from "../../components/Input";
+import React from "react";
 
-import { addData } from "../../firebase/firebase";
-import { useDispatch } from "react-redux";
-import { createDancer } from "../../actions/dancer";
-import { useFormik } from "formik";
-
+import { Button, Icon } from "react-materialize";
+import { useNavigate } from "react-router-dom";
+import DancerForm from "../../components/Forms/DancerForm";
 import "../../App.css";
 
 const CreateDancers = () => {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      lastName: "",
-      ci: 0,
-      gender: "",
-      birthdate: 0,
-      address: "",
-    },
-    onSubmit: (values) => {
-      handleAdd(values);
-      //   alert(JSON.stringify(values, null, 2));
-    },
-  });
-  const dispatch = useDispatch();
-  const handleAdd = (values) => {
-    dispatch(createDancer(values));
+  const navigate = useNavigate();
+  const initialValues = {
+    name: "Jose",
+    lastName: "",
+    ci: 0,
+    gender: "",
+    birthdate: 0,
+    address: "",
+    state: "",
   };
 
   return (
-    <section className="border-box">
-      <h1>Create Dancer</h1>
-      <form onSubmit={formik.handleSubmit} className="main-box">
-        <Input
-          name="name"
-          label="Nombre"
-          value={formik.values.name}
-          handleInputChange={formik.handleChange}
-        />
-        <Input
-          name="lastName"
-          label="Apellido"
-          value={formik.values.lastName}
-          handleInputChange={formik.handleChange}
-        />
-        <Input
-          name="ci"
-          label="Cédula"
-          type="number"
-          handleInputChange={formik.handleChange}
-          value={formik.values.ci}
-        />
-        <Input
-          name="gender"
-          label="Sexo"
-          type="text"
-          value={formik.values.gender}
-          handleInputChange={formik.handleChange}
-        />
-        <Input
-          name="birthdate"
-          label="Fecha de nacimiento"
-          type="date"
-          value={formik.values.birthdate}
-          handleInputChange={formik.handleChange}
-        />
-        <Input
-          name="address"
-          label="Dirección"
-          value={formik.values.address}
-          handleInputChange={formik.handleChange}
-        />
-        <button className="button_group" type="submit">
-          Crear
-        </button>
-      </form>
-      <div className="main-box">
-        {/*         
-        <Input
-          name="Sexo"
-          type="number"
-          handleInputChange={handleInputChange}
-        />
-        <Input
-          name="Fecha de nacimiento"
-          type="date"
-          handleInputChange={handleInputChange}
-        />
-        <Input name="Dirección" handleInputChange={handleInputChange} /> */}
-      </div>
-      {/* <button className="button_group" onClick={handleAdd}>
-        Crear
-      </button> */}
-    </section>
+    <>
+      <h4>Create Dancer</h4>
+      <section className="border-box">
+        <DancerForm dancer={initialValues} type="Agregar" />
+      </section>
+      <Button
+        className="red"
+        fab={{
+          direction: "left",
+        }}
+        icon={<Icon>arrow_back</Icon>}
+        floating
+        large
+        node="button"
+        onClick={() => navigate(-1)}
+      ></Button>
+    </>
   );
 };
 
