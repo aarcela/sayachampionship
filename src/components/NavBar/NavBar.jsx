@@ -49,7 +49,9 @@ export const NavBar = () => {
       }}
     >
       <NavItem>{name}</NavItem>
-      <Link to="list-dancer">Dancer's List</Link>
+      <Link to="/">Home</Link>
+      <Link to="list-dancer">Lista de Bailarines</Link>
+      <Link to="list-academies">Lista de Academias</Link>
       <NavItem onClick={logout}>LogOut</NavItem>
     </Navbar>
   );

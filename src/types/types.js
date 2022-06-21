@@ -6,4 +6,9 @@ export const types = {
   detailDancer: "[Dancer] DETAIL",
 
   loading: "LOADING",
+
+  listAcademy: "[Academy] LIST",
+  detailAcademy: "[Academy] DETAIL",
+  editAcademy: "[Academy] EDIT",
+  removeAcademy: "[Academy] REMOVE",
 };

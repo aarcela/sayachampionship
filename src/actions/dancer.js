@@ -4,13 +4,17 @@ import { types } from "../types/types";
 export const createDancer = (dancerData) => {
   return async (dispatch, getState) => {
     // const dancer = getState().dancers
-    console.table([dancerData]);
-    addData(dancerData);
+    console.table([getState]);
+    addData(dancerData, "dancers");
   };
 };
 export const editDancer = (dancerData, dancerId) => {
   return async (dispatch, getState) => {
     editData(dancerId, dancerData);
+    return dispatch({
+      type: types.editDancer,
+      payload: { dancerId: dancerId, dancerData: dancerData },
+    });
   };
 };
 
@@ -32,7 +36,7 @@ export const detailDancer = (uid) => {
 };
 export const deleteDancer = (uid) => {
   return async (dispatch, getState) => {
-    deleteData(uid);
+    deleteData(uid, "dancers");
     return dispatch({
       type: types.removeDancer,
       payload: uid,

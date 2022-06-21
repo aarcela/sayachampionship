@@ -6,6 +6,7 @@ import { Button, Icon } from "react-materialize";
 import { useNavigate } from "react-router-dom";
 import "../../App.css";
 import "materialize-css";
+import "react-toastify/dist/ReactToastify.css";
 
 const DetailDancer = () => {
   const dancerID = useSelector((state) => state.dancers.dancerID);
@@ -13,9 +14,10 @@ const DetailDancer = () => {
   const [dancer, setDancer] = useState([]);
 
   const navigate = useNavigate();
+
   useEffect(() => {
     const getDancer = async () => {
-      const { data } = await detailData(dancerID);
+      const { data } = await detailData(dancerID, "dancers");
       setDancer(data);
     };
     getDancer();

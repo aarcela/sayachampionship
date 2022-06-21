@@ -20,7 +20,21 @@ const dancersReducer = (state = initialState, action) => {
         dancerID: action.payload,
       };
     case types.editDancer:
-      return {};
+      const indexU = state.dancersData.findIndex(
+        (dancer) => dancer.id === action.payload.dancerId
+      );
+
+      const helperArray = [...state.dancersData];
+      helperArray[indexU] = action.payload.dancerData;
+      helperArray[indexU].id = action.payload.dancerId;
+      return {
+        ...state,
+        dancersData: helperArray,
+        // helperArray,
+        // ...state.dancersData.slice(0, indexU),
+        // ...state.dancersData.splice(indexU, 1, action.payload.dancerData),
+        // ...state.dancersData.slice(indexU + 1),
+      };
     case types.removeDancer:
       return {
         ...state,

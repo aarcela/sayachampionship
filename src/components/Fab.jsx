@@ -4,7 +4,13 @@ import { useNavigate } from "react-router-dom";
 
 const Fab = ({ iconName, navigation }) => {
   console.log(navigation);
+  console.log(iconName);
   const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate({ navigation });
+  };
+
   return (
     <Button
       className="blue_background"
@@ -15,7 +21,7 @@ const Fab = ({ iconName, navigation }) => {
       floating
       large
       node="button"
-      onClick={() => navigate({ navigation })}
+      onClick={() => goToDetail()}
     ></Button>
   );
 };

@@ -14,7 +14,8 @@ const Register = () => {
   useEffect(() => {
     if (loading) return;
     if (user) navigate("dashboard");
-  }, [user, loading, navigate]);
+    if (error) console.log(error);
+  }, [user, loading, error, navigate]);
 
   return (
     <>

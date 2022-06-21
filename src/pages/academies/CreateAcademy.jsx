@@ -1,27 +1,15 @@
 import React from "react";
-
 import { Button, Icon } from "react-materialize";
 import { useNavigate } from "react-router-dom";
-import DancerForm from "../../components/Forms/DancerForm";
-import "../../App.css";
+import AcademyForm from "../../components/Forms/AcademyForm";
 
-const CreateDancers = () => {
+const CreateAcademy = () => {
   const navigate = useNavigate();
-  const initialValues = {
-    name: "",
-    lastName: "",
-    ci: "0",
-    gender: [],
-    birthdate: "",
-    address: "",
-    state: [],
-  };
-
   return (
     <>
-      <h4>Create Dancer</h4>
+      <h4>Create Academy</h4>
       <section className="border-box">
-        <DancerForm dancer={initialValues} type="Agregar" />
+        <AcademyForm academy={""} type="Agregar" />
       </section>
       <Button
         className="blue_background"
@@ -38,4 +26,4 @@ const CreateDancers = () => {
   );
 };
 
-export default CreateDancers;
+export default CreateAcademy;

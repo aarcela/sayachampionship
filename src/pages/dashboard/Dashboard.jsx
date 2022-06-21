@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadData } from "../../firebase/firebase";
 import { listDancers } from "../../actions/dancer";
+import { listAcademy } from "../../actions/academy";
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -10,8 +11,10 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchDancers = async () => {
-      const dancersData = await loadData();
+      const dancersData = await loadData("dancers");
+      const academiesData = await loadData("academy");
       dispatch(listDancers(dancersData));
+      dispatch(listAcademy(academiesData));
     };
     fetchDancers();
 
@@ -19,14 +22,13 @@ const Dashboard = () => {
   }, [dispatch]);
 
   const data = useSelector((state) => state.dancers.dancersData);
-
-  // setDancerCounter(data.length);
+  const academiesData = useSelector((state) => state.academies.academiesData);
 
   return (
     <section className="badges_container">
-      <Link to="/list-dancer">
+      <Link to="/list-academies">
         <div className="badge">
-          <h3>00</h3>
+          <h3>{academiesData.length}</h3>
           <h6>Academias</h6>
         </div>
       </Link>

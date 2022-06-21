@@ -9,17 +9,18 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 
-export const addData = async (data) => {
+export const addData = async (data, collectionName) => {
   try {
-    const docRef = await addDoc(collection(db, "dancers"), { data });
+    const docRef = await addDoc(collection(db, collectionName), { data });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
 };
 
-export const loadData = async () => {
-  const querySnapshot = await getDocs(collection(db, "dancers"));
+export const loadData = async (collectionName) => {
+  console.log(collectionName);
+  const querySnapshot = await getDocs(collection(db, collectionName));
   const data = [];
   querySnapshot.forEach((doc) => {
     data.push({
@@ -30,22 +31,22 @@ export const loadData = async () => {
   return data;
 };
 
-export const detailData = async (dancerID) => {
-  const docRef = doc(db, "dancers", dancerID);
+export const detailData = async (docID, collectionName) => {
+  const docRef = doc(db, collectionName, docID);
   const docSnap = await getDoc(docRef);
-  // console.log(docSnap.data());
   return docSnap.data();
 };
 
-export const editData = async (docId, dancerData) => {
-  console.log("Data Frebase", dancerData);
-  const docRef = doc(db, "dancers", docId);
-  await updateDoc(docRef, dancerData);
+export const editData = async (docId, data, collectionName) => {
+  console.log("Edit: ", docId, data);
+  const docRef = doc(db, collectionName, docId);
+  const newData = Object(data);
+  await updateDoc(docRef, { data: newData });
   return;
 };
 
-export const deleteData = async (docId) => {
-  const docRef = doc(db, "dancers", docId);
+export const deleteData = async (docId, collectionName) => {
+  const docRef = doc(db, collectionName, docId);
   await deleteDoc(docRef);
   return;
 };

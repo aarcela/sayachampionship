@@ -15,7 +15,6 @@ const Login = () => {
   console.log(error);
   useEffect(() => {
     if (loading) {
-      console.log("Loading");
       return;
     }
     if (user) navigate("dashboard");
