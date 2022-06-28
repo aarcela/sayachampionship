@@ -1,12 +1,9 @@
 import React from "react";
-
-import { Button, Icon } from "react-materialize";
-import { useNavigate } from "react-router-dom";
 import DancerForm from "../../components/Forms/DancerForm";
+import Fab from "../../components/Fab";
 import "../../App.css";
 
 const CreateDancers = () => {
-  const navigate = useNavigate();
   const initialValues = {
     name: "",
     lastName: "",
@@ -19,21 +16,11 @@ const CreateDancers = () => {
 
   return (
     <>
-      <h4>Create Dancer</h4>
+      <h5>Agregar Bailarín</h5>
       <section className="border-box">
         <DancerForm dancer={initialValues} type="Agregar" />
       </section>
-      <Button
-        className="blue_background"
-        fab={{
-          direction: "left",
-        }}
-        icon={<Icon>arrow_back</Icon>}
-        floating
-        small
-        node="button"
-        onClick={() => navigate(-1)}
-      ></Button>
+      <Fab iconName="arrow_back" />
     </>
   );
 };

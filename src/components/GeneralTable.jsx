@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, Table } from "react-materialize";
+import { Col, Collection, CollectionItem, Icon, Row } from "react-materialize";
 
 const GeneralTable = ({
   title,
@@ -12,8 +12,37 @@ const GeneralTable = ({
 }) => {
   return (
     <>
-      <section className="main-box">
-        <h4>{title}</h4>
+      <h5>{title}</h5>
+
+      <Row>
+        <Col m={6} s={12}>
+          <Collection>
+            {data.map((element, index) => {
+              return (
+                <CollectionItem className="avatar" key={index}>
+                  <span className="title" onClick={() => detail(element.id)}>
+                    {header1}: {element.name} {element.lastName}
+                  </span>
+                  <p>
+                    {header2}: {!element.ci ? element.state : element.ci}
+                    <br />
+                    Academia: {element.academy}
+                  </p>
+                  <Icon
+                    className="secondary-content"
+                    onClick={() => remove(element.id)}
+                  >
+                    delete
+                  </Icon>
+                </CollectionItem>
+              );
+            })}
+          </Collection>
+        </Col>
+      </Row>
+
+      {/* <section className="main-box">
+        <h5>{title}</h5>
         <Table centered striped>
           <thead>
             <tr>
@@ -30,7 +59,7 @@ const GeneralTable = ({
                   <td>
                     {element.director} {element.lastName}
                   </td>
-                  <td>{element.state}</td>
+                  <td>{!element.ci ? element.state : element.ci}</td>
                   <td>
                     <Icon onClick={() => remove(element.id)}>delete</Icon>
                   </td>
@@ -39,7 +68,7 @@ const GeneralTable = ({
             })}
           </tbody>
         </Table>
-      </section>
+      </section> */}
     </>
   );
 };

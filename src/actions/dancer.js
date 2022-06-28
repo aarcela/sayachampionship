@@ -10,7 +10,7 @@ export const createDancer = (dancerData) => {
 };
 export const editDancer = (dancerData, dancerId) => {
   return async (dispatch, getState) => {
-    editData(dancerId, dancerData);
+    editData(dancerId, dancerData, "dancers");
     return dispatch({
       type: types.editDancer,
       payload: { dancerId: dancerId, dancerData: dancerData },

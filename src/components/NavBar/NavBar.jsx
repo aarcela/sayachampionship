@@ -31,7 +31,7 @@ export const NavBar = () => {
       alignLinks="right"
       brand={
         <Link className="brand-logo" to="/dashboard">
-          Salsa y Ashe
+          {name}
         </Link>
       }
       id="mobile-nav"
@@ -48,7 +48,6 @@ export const NavBar = () => {
         preventScrolling: true,
       }}
     >
-      <NavItem>{name}</NavItem>
       <Link to="/">Home</Link>
       <Link to="list-dancer">Lista de Bailarines</Link>
       <Link to="list-academies">Lista de Academias</Link>

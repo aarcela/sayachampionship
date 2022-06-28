@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Icon } from "react-materialize";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteAcademy, detailAcademy } from "../../actions/academy";
+import Fab from "../../components/Fab";
 import GeneralTable from "../../components/GeneralTable";
 
 const ListAcademies = () => {
@@ -30,17 +30,7 @@ const ListAcademies = () => {
         header2="Director"
         header3="Estado"
       />
-      <Button
-        className="blue_background"
-        fab={{
-          direction: "left",
-        }}
-        icon={<Icon>library_add</Icon>}
-        floating
-        small
-        node="button"
-        onClick={() => navigate("/create-academy")}
-      ></Button>
+      <Fab iconName="library_add" navigation="/create-academy" />
     </>
   );
 };

@@ -68,7 +68,7 @@ const AcademyForm = ({ type, academy, academyID }) => {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit} className="main-box">
+      <form onSubmit={formik.handleSubmit}>
         <Input
           name="name"
           label="Nombre"

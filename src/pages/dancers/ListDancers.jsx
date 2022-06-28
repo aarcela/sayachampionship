@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteDancer, detailDancer } from "../../actions/dancer";
-import { Button, Icon } from "react-materialize";
 import { useNavigate } from "react-router-dom";
 import GeneralTable from "../../components/GeneralTable";
 import "../../App.css";
 import "materialize-css";
+import Fab from "../../components/Fab";
+
 const ListDancers = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const ListDancers = () => {
   return (
     <>
       <GeneralTable
+        title="Lista de Bailarines"
         data={dataDancer}
         header1="Nombre"
         header2="Apellido"
@@ -31,17 +33,7 @@ const ListDancers = () => {
         detail={getDetailDancer}
         remove={removeDancer}
       />
-      <Button
-        className="blue_background"
-        fab={{
-          direction: "left",
-        }}
-        icon={<Icon>person_add</Icon>}
-        floating
-        small
-        node="button"
-        onClick={() => navigate("/create-dancer")}
-      ></Button>
+      <Fab iconName="person_add" navigation="/create-dancer" />
     </>
   );
 };

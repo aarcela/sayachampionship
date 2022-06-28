@@ -18,6 +18,14 @@
 	min-width: 10em;
 }
 
+.badge h3{
+	margin-top: 0;
+}
+
+.badge i{
+	color: #0F2C67;
+}
+
 .badge span{
 	font-size: 0.5rem;
 }

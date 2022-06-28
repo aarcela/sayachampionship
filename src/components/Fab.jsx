@@ -2,13 +2,10 @@ import React from "react";
 import { Button, Icon } from "react-materialize";
 import { useNavigate } from "react-router-dom";
 
-const Fab = ({ iconName, navigation }) => {
-  console.log(navigation);
-  console.log(iconName);
+const Fab = ({ iconName, navigation = -1 }) => {
   const navigate = useNavigate();
-
   const goToDetail = () => {
-    navigate({ navigation });
+    navigate(navigation);
   };
 
   return (

@@ -8,6 +8,7 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "./Login.module.css";
 import "../../App.css";
+import Input from "../../components/Input";
 
 const Login = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -26,35 +27,22 @@ const Login = () => {
       <section className="border-box">
         <div className="main-box">
           <h4>Iniciar Sesión</h4>
-          <div className="input-field">
-            <input
-              id="email"
-              required=""
-              type="text"
-              name="email"
-              autoComplete="off"
-              className="red-text text-darken-3"
-            />
-            <label htmlFor="email" className="red-text text-darken-3">
-              Email
-            </label>
-          </div>
-          <div className="input-field">
-            <input
-              autoComplete="off"
-              className="red-text text-darken-3"
-              id="password"
-              name="password"
-              required=""
-              type="password"
-            />
-            <label htmlFor="password" className="red-text text-darken-3">
-              Contraseña
-            </label>
-          </div>
+          <Input
+            name="email"
+            label="Email"
+            type="email"
+            className="red-text text-darken-3"
+          />
+          <Input
+            name="password"
+            label="Contraseña"
+            type="password"
+            className="red-text text-darken-3"
+          />
           <button className={styles.google_btn} onClick={signInWithGoogle}>
             Iniciar con Google
           </button>
+          <br />
           <h6>
             O registrate{" "}
             <Link className="red-text text-darken-3" to="register">
