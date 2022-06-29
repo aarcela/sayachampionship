@@ -29,7 +29,7 @@ const ListDancers = () => {
         data={dataDancer}
         header1="Nombre"
         header2="Apellido"
-        header3="CI"
+        header3="Academia"
         detail={getDetailDancer}
         remove={removeDancer}
       />

@@ -4,7 +4,8 @@ import { types } from "../types/types";
 export const createDancer = (dancerData) => {
   return async (dispatch, getState) => {
     // const dancer = getState().dancers
-    console.table([getState]);
+    // console.table([getState]);
+
     addData(dancerData, "dancers");
   };
 };

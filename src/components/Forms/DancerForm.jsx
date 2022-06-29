@@ -7,6 +7,8 @@ import { createDancer, editDancer } from "../../actions/dancer";
 import { Select } from "react-materialize";
 import { vzla_state } from "../../app/vzla_states";
 import { ToastContainer, toast } from "react-toastify";
+import { useState } from "react";
+import { uploadFile } from "../../firebase/firebase";
 import "../../App.css";
 
 const DancerForm = ({ type, dancer, dancerID }) => {
@@ -26,6 +28,9 @@ const DancerForm = ({ type, dancer, dancerID }) => {
     }
     if (!values.academy) {
       errors.academy = "Requerido";
+    }
+    if (!values.antiquity) {
+      errors.antiquity = "Requerido";
     }
 
     if (!values.ci) {
@@ -49,6 +54,8 @@ const DancerForm = ({ type, dancer, dancerID }) => {
       state: dancer.state,
       antiquity: dancer.antiquity,
       academy: dancer.academy,
+      photoURL: dancer.photoURL,
+      newPhoto: dancer.newPhoto,
     },
     validate,
     enableReinitialize: true,
@@ -66,10 +73,16 @@ const DancerForm = ({ type, dancer, dancerID }) => {
       }
     },
   });
+
   const academyList = useSelector((state) => state.academies.academiesData);
+  const [file, setFile] = useState();
 
   const dispatch = useDispatch();
-  const handleAdd = (values) => {
+
+  const handleAdd = async (values) => {
+    const imageURL = await uploadFile(file);
+    formik.values.photoURL = imageURL;
+    console.log(values);
     dispatch(createDancer(values));
     notify("Usuario Creado");
   };
@@ -80,10 +93,30 @@ const DancerForm = ({ type, dancer, dancerID }) => {
 
   const notify = (message) => toast(message);
 
+  const handleFile = (event) => {
+    setFile(event.target.files[0]);
+  };
+
   return (
     <>
       <div className="main-box">
         <form onSubmit={formik.handleSubmit}>
+          {dancer.photoURL && (
+            <img
+              src={dancer.photoURL}
+              className="profile_image"
+              alt="profile"
+            />
+          )}
+          <Input
+            name="photo"
+            label="Foto"
+            value={formik.values.newPhoto}
+            type="file"
+            handleinputchange={handleFile}
+            className="input-field"
+            error={formik.errors.newPhoto}
+          />
           <Input
             name="name"
             label="Nombre"
@@ -116,7 +149,10 @@ const DancerForm = ({ type, dancer, dancerID }) => {
             onChange={formik.handleChange}
             className="input-field"
           >
-            {academyList.map((academy, index) => {
+            <option disabled value="">
+              Seleccionar...
+            </option>
+            {academyList.map((academy) => {
               return (
                 <option key={academy.id} value={academy.name}>
                   {academy.name}

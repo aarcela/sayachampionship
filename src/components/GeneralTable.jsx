@@ -24,9 +24,9 @@ const GeneralTable = ({
                     {header1}: {element.name} {element.lastName}
                   </span>
                   <p>
-                    {header2}: {!element.ci ? element.state : element.ci}
+                    {header2}: {!element.ci ? element.director : element.ci}
                     <br />
-                    Academia: {element.academy}
+                    {header3}: {!element.ci ? element.state : element.academy}
                   </p>
                   <Icon
                     className="secondary-content"

@@ -9,6 +9,15 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
+
+const storage = getStorage();
+
 export const addData = async (data, collectionName) => {
   try {
     const docRef = await addDoc(collection(db, collectionName), { data });
@@ -49,4 +58,13 @@ export const deleteData = async (docId, collectionName) => {
   const docRef = doc(db, collectionName, docId);
   await deleteDoc(docRef);
   return;
+};
+
+export const uploadFile = async (file) => {
+  const storageRef = await ref(storage, `/profileImages/${file.name}`);
+  const uploadTask = await uploadBytesResumable(storageRef, file);
+  await uploadTask;
+  const url = await getDownloadURL(storageRef);
+  console.log(url);
+  return url;
 };
