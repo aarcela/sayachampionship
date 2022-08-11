@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInput } from "react-materialize";
-import "../App.css";
+// import "../App.css";
 
 const Input = ({
   name,

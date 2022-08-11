@@ -12,6 +12,10 @@ const CreateDancers = () => {
     birthdate: "",
     address: "",
     state: [],
+    antiquity: "",
+    academy: [],
+    photoURL: "",
+    newPhoto: "",
   };
 
   return (

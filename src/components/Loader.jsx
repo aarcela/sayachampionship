@@ -4,7 +4,7 @@ import { Preloader } from "react-materialize";
 const Loader = () => {
   return (
     <>
-      <Preloader active color="red" flashing={false} size="big" />
+      <Preloader active color="yellow" flashing={false} size="big" />
     </>
   );
 };

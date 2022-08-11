@@ -1,3 +1,17 @@
+@import url('https://fonts.cdnfonts.com/css/a-akhir-tahun');
+
+.main_background{
+	background-image: url('../../../public/assets/images/main_bg.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
 .box{
 	background-color: white;
 	border-radius: 1rem;
@@ -6,52 +20,45 @@
 }
 
 .content{
-	gap: 1.5rem;
+	align-items: center;
 	display: flex;
 	flex-direction: column;
+	gap: 1rem;
 	justify-content: center;
-	padding: 2rem;
+	/* padding: 2rem; */
 }
 
 .google_btn{
 	background-color: white;
-	border: 1px solid black;
-	border-radius: 1rem;
-	font-size: 1rem;
-	padding: 1rem
+	border: 1px solid red;
+	border-radius: 31px !important; 
+	border: 1.5px solid #FFFFFF !important;
+	color: #F2C940;
+	padding: 0.5rem !important;
+	transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+	width: 50% !important;
 }
 
 .google_btn:focus{
 	background-color: #c62828;
 	color: white;
 	border: none;
+	
+}
+   
+.custom_input {
+	background: #1D2F4B !important;
+	border-radius: 31px !important; 
+	border: 1.5px solid #FFFFFF !important;
+	color: white;
+	padding: 0 0.5rem !important;
+	transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+	width: 50% !important;
 }
 
-.input_group {
-	position: relative;
-   }
-   
-.input {
-	border: solid 1.5px #e5e5e5;
-	border-radius: 1rem;
-	background: none;
-	padding: 1rem;
-	font-size: 1rem;
-	color: black;
-	-webkit-transition: border 150ms cubic-bezier(0.4,0,0.2,1);
-	transition: border 150ms cubic-bezier(0.4,0,0.2,1);
-}
 
 .user_label {
-position: absolute;
-left: 15px;
-color: black;
-pointer-events: none;
--webkit-transform: translateY(1rem);
-	-ms-transform: translateY(1rem);
-		transform: translateY(1rem);
--webkit-transition: 150ms cubic-bezier(0.4,0,0.2,1);
-transition: 150ms cubic-bezier(0.4,0,0.2,1);
+color: #F2C940;
 }
 
 .input:focus, input:valid {
@@ -68,14 +75,35 @@ padding: 0 .2em;
 color: black;
 }
 
-.waves{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	z-index: -100;
+input:focus{
+	border: 1px solid #F2C940 !important;
+	box-shadow: 0 1px 0 0 #F2C940 !important;
 }
 
-input:focus{
-	border-bottom: 1px solid #c62828 !important;
-	box-shadow: 0 1px 0 0 #c62828 !important;
+.slogan{
+	color: white;
+	font-family: 'a Akhir Tahun';
+}
+
+.submit_btn{
+
+	background: #F2C940 !important;
+	border-radius: 31px !important; 
+	border: 1.5px solid #FFFFFF !important;
+	cursor: pointer;
+	color: white;
+	padding: 0.5rem !important;
+	transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+	width: 50% !important;
+
+}
+
+.submit_btn:hover{
+	background-color: white !important;
+	color: #F2C940;
+}
+
+.submit_btn:active{
+	background-color: white !important;
+	color: #F2C940;
 }

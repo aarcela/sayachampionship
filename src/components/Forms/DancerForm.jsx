@@ -86,7 +86,10 @@ const DancerForm = ({ type, dancer, dancerID }) => {
     dispatch(createDancer(values));
     notify("Usuario Creado");
   };
-  const handleEdit = (values, dancerID) => {
+  const handleEdit = async (values, dancerID) => {
+    const imageURL = await uploadFile(file);
+    formik.values.photoURL = imageURL;
+    console.log(values);
     dispatch(editDancer(values, dancerID));
     notify("Usuario Editado");
   };
@@ -145,7 +148,7 @@ const DancerForm = ({ type, dancer, dancerID }) => {
           <Select
             name="academy"
             label="Academia"
-            value={formik.values.academy}
+            value={formik.values.academy || []}
             onChange={formik.handleChange}
             className="input-field"
           >
@@ -166,7 +169,7 @@ const DancerForm = ({ type, dancer, dancerID }) => {
           <Select
             name="gender"
             label="Sexo"
-            value={formik.values.gender}
+            value={formik.values.gender || []}
             onChange={formik.handleChange}
             className="input-field"
           >
@@ -195,7 +198,7 @@ const DancerForm = ({ type, dancer, dancerID }) => {
           <Select
             name="state"
             label="Estado"
-            value={formik.values.state}
+            value={formik.values.state || []}
             onChange={formik.handleChange}
             className="input-field"
           >

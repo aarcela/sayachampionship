@@ -30,7 +30,7 @@ const ListAcademies = () => {
         header2="Director"
         header3="Estado"
       />
-      <Fab iconName="library_add" navigation="/create-academy" />
+      {/* <Fab iconName="library_add" navigation="/create-academy" /> */}
     </>
   );
 };

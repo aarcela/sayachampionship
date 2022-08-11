@@ -11,4 +11,6 @@ export const types = {
   detailAcademy: "[Academy] DETAIL",
   editAcademy: "[Academy] EDIT",
   removeAcademy: "[Academy] REMOVE",
+
+  listEvents: "[Events] LIST",
 };
